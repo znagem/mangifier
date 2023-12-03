@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMango.Analyzer", "EMango.Analyzer\EMango.Analyzer.csproj", "{9FC0C3CE-7540-4864-A121-8A1A649C8AFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMango.Api", "EMango.Api\EMango.Api.csproj", "{A3D41044-73EB-4D24-AFC2-8E417E454DB1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9FC0C3CE-7540-4864-A121-8A1A649C8AFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FC0C3CE-7540-4864-A121-8A1A649C8AFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FC0C3CE-7540-4864-A121-8A1A649C8AFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FC0C3CE-7540-4864-A121-8A1A649C8AFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3D41044-73EB-4D24-AFC2-8E417E454DB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3D41044-73EB-4D24-AFC2-8E417E454DB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3D41044-73EB-4D24-AFC2-8E417E454DB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3D41044-73EB-4D24-AFC2-8E417E454DB1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
