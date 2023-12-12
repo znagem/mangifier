@@ -1,4 +1,4 @@
-# e-Mango
+# Mangifier
 
 A Philippine Super Mango Quality and Disease Identification and Prevention using Convolutional Neural Networks Algorithm
 
