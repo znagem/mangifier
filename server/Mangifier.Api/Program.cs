@@ -1,44 +1,43 @@
+using FastEndpoints;
+using FastEndpoints.Security;
+using FastEndpoints.Swagger;
+using Mangifier.Api;
+using Mangifier.Api.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+const string corsOrigin = "_corsOrigins";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(corsOrigin,
+        policy =>
+        {
+            policy.WithOrigins(
+                    "http://localhost:5000")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});
+
+builder.ConfigureKestrelInProduction();
+builder.Services.AddHostedService<StartupService>();
+builder.Services.AddLoggingServices();
+builder.Services.AddDataAccessServices();
+builder.Services.AddOtherServices();
+builder.Services.AddAuthorization();
+builder.Services.AddFastEndpoints();
+builder.Services.SwaggerDocument();
+builder.Services.AddJWTBearerAuth(builder.Configuration["JWTKey"]!,
+    bearerEvents: o => o.OnMessageReceived = ctx => ctx.SetupTokenFilterAsync());
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
 app.UseHttpsRedirection();
-
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-    {
-        var forecast = Enumerable.Range(1, 5).Select(index =>
-                new WeatherForecast
-                (
-                    DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                    Random.Shared.Next(-20, 55),
-                    summaries[Random.Shared.Next(summaries.Length)]
-                ))
-            .ToArray();
-        return forecast;
-    })
-    .WithName("GetWeatherForecast")
-    .WithOpenApi();
+app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization();
+app.UseFastEndpoints(c => { c.Endpoints.RoutePrefix = "api"; });
+app.UseSwaggerGen();
+app.UseMiddlewares();
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int) (TemperatureC / 0.5556);
-}

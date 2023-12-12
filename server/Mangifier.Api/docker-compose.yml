@@ -1,0 +1,48 @@
+﻿services:
+  mangifier-db:
+    hostname: mangifier-db
+    image: mongo
+    expose:
+      - 27017
+    ports:
+      - 4130:27017
+    volumes:
+      - mangifier-data:/data/db
+    networks:
+      mangifier_net:
+        ipv4_address: 14.1.0.1
+    restart: always
+    command: mongod --replSet mangifier-set --bind_ip  14.1.0.1
+  mangifier-init:
+    image: mongo
+    restart: 'no'
+    depends_on:
+      - mangifier-db
+    networks:
+      mangifier_net:
+        ipv4_address: 14.1.0.2
+    command: >
+      mongosh --host mangifier-db:27017 --eval
+      '
+      db = (new Mongo("14.1.0.1:27017")).getDB("admin");
+      config = {
+      "_id" : "mangifier-set",
+      "members" : [
+        {
+          "_id" : 0,
+          "host" : "mangifier-db:27017"
+        }
+      ]
+      };
+      rs.initiate(config);
+      '
+volumes:
+  mangifier-data:
+
+networks:
+  mangifier_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 14.1.0.0/24
+          gateway: 14.1.0.254

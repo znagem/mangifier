@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mangifier.Analyzer", "Mangi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mangifier.Api", "Mangifier.Api\Mangifier.Api.csproj", "{A3D41044-73EB-4D24-AFC2-8E417E454DB1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mangifier.Api.Generator", "Mangifier.Api.Generator\Mangifier.Api.Generator.csproj", "{757BDF58-FC09-434B-B289-4DA3623517B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mangifier.Source.Generator", "Mangifier.Source.Generator\Mangifier.Source.Generator.csproj", "{4674EB5E-F5FB-4D06-B420-A0C191A93D27}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +28,13 @@ Global
 		{A3D41044-73EB-4D24-AFC2-8E417E454DB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3D41044-73EB-4D24-AFC2-8E417E454DB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3D41044-73EB-4D24-AFC2-8E417E454DB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{757BDF58-FC09-434B-B289-4DA3623517B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{757BDF58-FC09-434B-B289-4DA3623517B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{757BDF58-FC09-434B-B289-4DA3623517B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{757BDF58-FC09-434B-B289-4DA3623517B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4674EB5E-F5FB-4D06-B420-A0C191A93D27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4674EB5E-F5FB-4D06-B420-A0C191A93D27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4674EB5E-F5FB-4D06-B420-A0C191A93D27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4674EB5E-F5FB-4D06-B420-A0C191A93D27}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
