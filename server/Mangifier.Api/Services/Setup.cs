@@ -20,8 +20,8 @@ public static class Setup
             {
                 options.Limits.MaxRequestBodySize = 1073741824;
                 var ip = IpAddressHelper.GetIpAddress();
-                options.Listen(IPAddress.Parse(ip), 5000);
-                options.Listen(IPAddress.Parse("127.0.0.1"), 5000);
+                options.Listen(IPAddress.Parse(ip), 5181);
+                options.Listen(IPAddress.Parse("127.0.0.1"), 5180);
             });
     }
 
