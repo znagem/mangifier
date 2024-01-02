@@ -6,16 +6,16 @@ import 'package:mangifier/models/diagnosis.dart';
 import 'package:mangifier/result.dart';
 import 'package:mangifier/services/analyzer_service.dart';
 
-class Analysis extends StatefulWidget {
-  const Analysis({super.key, required this.imagePath});
+class AnalysisPage extends StatefulWidget {
+  const AnalysisPage({super.key, required this.imagePath});
 
   final String imagePath;
 
   @override
-  State<Analysis> createState() => _AnalysisState();
+  State<AnalysisPage> createState() => _AnalysisPageState();
 }
 
-class _AnalysisState extends State<Analysis> {
+class _AnalysisPageState extends State<AnalysisPage> {
   var _result = Diagnosis(diseases: []);
 
   final client = http.Client();

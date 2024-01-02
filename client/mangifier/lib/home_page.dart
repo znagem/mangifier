@@ -1,11 +1,9 @@
-import 'dart:ui';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:lottie/lottie.dart';
-import 'package:mangifier/analysis.dart';
+import 'package:mangifier/analysis_page.dart';
 import 'package:mangifier/info_page.dart';
 import 'package:mangifier/settings_page.dart';
 import 'package:mangifier/toast.dart';
@@ -193,7 +191,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => Analysis(imagePath: result),
+        builder: (context) => AnalysisPage(imagePath: result),
       ),
     );
   }

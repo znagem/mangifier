@@ -39,7 +39,7 @@ class _SettingsPageState extends State<SettingsPage> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Base(
               appBar: AppBar(
-                title: Text("Settings"),
+                title: const Text("Settings"),
                 centerTitle: true,
                 leading: IconButton(
                   onPressed: () => Navigator.pop(context),

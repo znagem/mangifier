@@ -4,17 +4,12 @@ import 'package:http/http.dart' as http;
 import 'package:lottie/lottie.dart';
 import 'package:mangifier/base.dart';
 
-class Analyzing extends StatefulWidget {
+class Analyzing extends StatelessWidget {
   const Analyzing({super.key, required this.imagePath, required this.client});
 
   final String imagePath;
   final http.Client client;
 
-  @override
-  State<Analyzing> createState() => _AnalyzingState();
-}
-
-class _AnalyzingState extends State<Analyzing> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -51,7 +46,7 @@ class _AnalyzingState extends State<Analyzing> {
             const SizedBox(height: 20),
             ElevatedButton.icon(
               onPressed: () {
-                widget.client.close();
+                client.close();
                 Navigator.pop(context);
               },
               style: ButtonStyle(

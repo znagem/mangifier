@@ -4,17 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:mangifier/base.dart';
 import 'package:mangifier/models/diagnosis.dart';
 
-class Result extends StatefulWidget {
+class Result extends StatelessWidget {
   const Result({super.key, required this.imagePath, required this.result});
 
   final Diagnosis result;
   final String imagePath;
 
-  @override
-  State<Result> createState() => _ResultState();
-}
-
-class _ResultState extends State<Result> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -38,11 +33,10 @@ class _ResultState extends State<Result> {
                 child: ClipOval(
                   child: Transform.scale(
                       scale: 1 / 0.7,
-                      child: Image.file(File(widget.imagePath),
-                          fit: BoxFit.cover)),
+                      child: Image.file(File(imagePath), fit: BoxFit.cover)),
                 ),
               ),
-              Column(children: _buildDiagnosisItems(widget.result, theme)),
+              Column(children: _buildDiagnosisItems(result, theme)),
             ],
           ),
         ),
